@@ -21,15 +21,25 @@ const CoinCard = ({ item }: item) => {
   const { brl } = item.market_data.current_price
 
   useEffect(() => {
+    const excludeColors: any = {
+      ksm: '.',
+      atom: '.',
+      miota: '.',
+      cro: '.'
+    }
     async function fetchData() {
       let { color } = await getColor(item.image.thumb)
-      if (color[0] === 242) {
-        color = [187, 160, 51]
+
+      if (excludeColors[item.symbol]) {
+        setBgColor('rgb(91, 91, 91)')
+        return null
       }
-      setBgColor(`rgba(${color[0]},${color[1]},${color[2]},0.8)`)
+      
+      setBgColor(`rgba(${color[0] - 90},${color[1] - 90},${color[2] - 90},0.8)`)
     }
     fetchData()
   }, [])
+
   return (
     <Container>
       <ImageCoin color={bgcolor}>
@@ -45,9 +55,21 @@ const CoinCard = ({ item }: item) => {
         </NameAndPrice>
         <BoxColor color={bgcolor} />
         <BoxVariation>
-          <Variation interval="Day" fluctuation={2.5} color={bgcolor}></Variation>
-          <Variation interval="Week" fluctuation={2.3} color={bgcolor}></Variation>
-          <Variation interval="Month" fluctuation={2.1} color={bgcolor}></Variation>
+          <Variation
+            interval="Day"
+            fluctuation={2.5}
+            color={bgcolor}
+          ></Variation>
+          <Variation
+            interval="Week"
+            fluctuation={2.3}
+            color={bgcolor}
+          ></Variation>
+          <Variation
+            interval="Month"
+            fluctuation={2.1}
+            color={bgcolor}
+          ></Variation>
         </BoxVariation>
       </Infos>
     </Container>

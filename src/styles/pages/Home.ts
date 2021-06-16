@@ -11,8 +11,9 @@ export const Container = styled.div`
 
   background-image: linear-gradient(
     to bottom,
-    #000000,
-    #003616
+    rgb(75,75,75),
+    rgb(60,60,60),
+    rgb(30,30,30),
+    rgb(0,0,0)
   );
-
 `

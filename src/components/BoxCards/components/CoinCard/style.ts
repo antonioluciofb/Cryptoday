@@ -21,7 +21,7 @@ export const Container = styled.div`
 
 export const ImageCoin = styled.div<bgColor>`
   width: 100%;
-  height: 40vh;
+  height: 45vh;
 
   background-color: ${props => props.color};
 
@@ -30,7 +30,7 @@ export const ImageCoin = styled.div<bgColor>`
   justify-content: center;
 
   .wrapper {
-    padding: 20px;
+    padding: 30px;
     background-color: #fff;
     border-radius: 200px;
 

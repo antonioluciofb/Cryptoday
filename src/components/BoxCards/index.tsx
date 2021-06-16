@@ -4,11 +4,10 @@ import { Container, Text } from './style'
 import CoinCard from './components/CoinCard'
 import mock from '../../../mock'
 
-const BoxCards: React.FC = () => {
-  console.log('Here ============>', mock)
+function BoxCards({ coins }: any) {
   return (
     <Container>
-      {mock.map(item => (
+      {coins.map(item => (
         <CoinCard item={item} />
       ))}
     </Container>
