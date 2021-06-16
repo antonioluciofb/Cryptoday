@@ -1,13 +1,14 @@
 import React from 'react'
 
 import { Container } from '../styles/pages/Home'
-import Logo from '../assets/logo.png'
+import Header from '../components/Header'
+import BoxCards from '../components/BoxCards'
 
 const Home: React.FC = () => {
   return (
     <Container>
-      <img src={Logo} alt="" />
-      <p>CRYPTODAY</p>
+      <Header></Header>
+      <BoxCards />
     </Container>
   )
 }

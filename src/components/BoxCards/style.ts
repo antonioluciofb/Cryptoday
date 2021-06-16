@@ -2,19 +2,15 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
+  min-height: 100vh;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  flex-direction: column;
-
-  margin: 10px 0px;
+  flex-wrap: wrap;
+  padding: 0px 30px;
 `
 
 export const Text = styled.p`
-  margin-top: 20px;
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 2px;
 `
