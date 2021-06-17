@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Container } from '../styles/pages/Home'
 import Header from '../components/Header'
@@ -6,10 +6,18 @@ import BoxCards from '../components/BoxCards'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 const Home: React.FC = ({ data }: any) => {
+  const [search, setSearch] = useState('')
   return (
     <Container>
       <Header></Header>
-      <BoxCards coins={data} />
+      <input
+        type="text"
+        placeholder="Coin or Symbol"
+        onChange={e => {
+          setSearch(e.target.value)
+        }}
+      />
+      <BoxCards search={search} coins={data} />
     </Container>
   )
 }

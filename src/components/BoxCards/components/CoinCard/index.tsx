@@ -19,6 +19,11 @@ import Variation from './components/Variation'
 const CoinCard = ({ item }: item) => {
   const [bgcolor, setBgColor] = useState('')
   const { brl } = item.market_data.current_price
+  const {
+    price_change_percentage_24h,
+    price_change_percentage_7d,
+    price_change_percentage_30d
+  } = item.market_data
 
   useEffect(() => {
     const excludeColors: any = {
@@ -34,7 +39,7 @@ const CoinCard = ({ item }: item) => {
         setBgColor('rgb(91, 91, 91)')
         return null
       }
-      
+
       setBgColor(`rgba(${color[0] - 90},${color[1] - 90},${color[2] - 90},0.8)`)
     }
     fetchData()
@@ -57,17 +62,17 @@ const CoinCard = ({ item }: item) => {
         <BoxVariation>
           <Variation
             interval="Day"
-            fluctuation={2.5}
+            fluctuation={price_change_percentage_24h}
             color={bgcolor}
           ></Variation>
           <Variation
             interval="Week"
-            fluctuation={2.3}
+            fluctuation={price_change_percentage_7d}
             color={bgcolor}
           ></Variation>
           <Variation
             interval="Month"
-            fluctuation={2.1}
+            fluctuation={price_change_percentage_30d}
             color={bgcolor}
           ></Variation>
         </BoxVariation>
