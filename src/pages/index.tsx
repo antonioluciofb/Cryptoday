@@ -6,18 +6,23 @@ import BoxCards from '../components/BoxCards'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 const Home: React.FC = ({ data }: any) => {
-  const [search, setSearch] = useState('')
+  const [coins, setCoins] = useState(data)
+
+  function matchSearch(event: any) {
+    console.log(event.target.value)
+
+    setCoins(data.filter(coin => coin.symbol.includes(event.target.value)))
+  }
+
   return (
     <Container>
       <Header></Header>
       <input
         type="text"
         placeholder="Coin or Symbol"
-        onChange={e => {
-          setSearch(e.target.value)
-        }}
+        onChange={e => matchSearch(e)}
       />
-      <BoxCards search={search} coins={data} />
+      <BoxCards coins={coins} />
     </Container>
   )
 }
