@@ -6,9 +6,10 @@ import CoinCard from './components/CoinCard'
 function BoxCards({ coins }: any) {
   return (
     <Container>
-      {coins.map(item => {
-        return <CoinCard item={item} />
-      })}
+      {coins.length > 0 ?
+        coins.map((item, i) => {
+          return <CoinCard key={i} item={item} />
+        }) : <h2>Descupe ainda não temos essa moeda</h2>}
     </Container>
   )
 }

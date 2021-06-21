@@ -3,19 +3,21 @@ import React, { useState } from 'react'
 import { Container } from '../styles/pages/Home'
 import Header from '../components/Header'
 import BoxCards from '../components/BoxCards'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticProps } from 'next'
+
+import Api from './api/[url]'
 
 const Home: React.FC = ({ data }: any) => {
   const [coins, setCoins] = useState(data)
 
   function matchSearch(event: any) {
-    setCoins(
-      data.filter(
-        coin =>
-          coin.symbol.includes(event.target.value) ||
-          coin.name.toLowerCase().includes(event.target.value.toLowerCase())
-      )
+    const searchFilter = data.filter(
+      coin =>
+        coin.symbol.includes(event.target.value) ||
+        coin.name.toLowerCase().includes(event.target.value.toLowerCase())
     )
+
+    setCoins(searchFilter)
   }
 
   return (
@@ -33,14 +35,9 @@ const Home: React.FC = ({ data }: any) => {
 
 export default Home
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = [] as any
-  return { paths, fallback: true }
-}
-
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
-  const response = await fetch('https://api.coingecko.com/api/v3/coins')
-  const data = await response.json()
+  const fakeFetch = await fetch('https://httpbin.org/get')
+  const data = await Api()
   const revalidateInSeconds = 60
 
   return {
