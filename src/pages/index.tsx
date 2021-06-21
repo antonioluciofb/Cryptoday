@@ -9,9 +9,13 @@ const Home: React.FC = ({ data }: any) => {
   const [coins, setCoins] = useState(data)
 
   function matchSearch(event: any) {
-    console.log(event.target.value)
-
-    setCoins(data.filter(coin => coin.symbol.includes(event.target.value)))
+    setCoins(
+      data.filter(
+        coin =>
+          coin.symbol.includes(event.target.value) ||
+          coin.name.toLowerCase().includes(event.target.value.toLowerCase())
+      )
+    )
   }
 
   return (
