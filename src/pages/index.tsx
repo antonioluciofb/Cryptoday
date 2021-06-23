@@ -37,6 +37,7 @@ export default Home
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const response = await fetch('https://api.coingecko.com/api/v3/coins')
+  const data2 = await Api()
   const data = await response.json()
   const revalidateInSeconds = 60
 
