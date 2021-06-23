@@ -36,8 +36,8 @@ const Home: React.FC = ({ data }: any) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
-  const fakeFetch = await fetch('https://httpbin.org/get')
-  const data = await Api()
+  const response = await fetch('https://api.coingecko.com/api/v3/coins')
+  const data = await response.json()
   const revalidateInSeconds = 60
 
   return {

@@ -26,11 +26,7 @@ const CoinCard = ({ item }: item) => {
   const excludeColors = ['ksm', 'atom', 'miota', 'cro']
 
   function whatsColor() {
-    if (excludeColors.includes(item.symbol)) {
-      return 'rgb(91, 91, 91)'
-    }
-
-    return item.color
+    return '#707070'
   }
 
   return (
