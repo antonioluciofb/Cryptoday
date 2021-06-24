@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  min-height: 100vh;
 
   display: flex;
   justify-content: center;
@@ -10,7 +9,10 @@ export const Container = styled.div`
 
   flex-wrap: wrap;
   padding: 0px 30px;
+
+  h2 {
+    margin: 100px 0px;
+  }
 `
 
-export const Text = styled.p`
-`
+export const Text = styled.p``

@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
+import { GetStaticProps } from 'next'
 
 import { Container } from '../styles/pages/Home'
 import Header from '../components/Header'
 import BoxCards from '../components/BoxCards'
-import { GetStaticProps } from 'next'
 
-import Api from './api/[url]'
-
-const Home: React.FC = ({ data }: any) => {
+const Home: React.FC = ({ data, imgForColor }: any) => {
   const [coins, setCoins] = useState(data)
 
   function matchSearch(event: any) {
@@ -37,7 +35,6 @@ export default Home
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const response = await fetch('https://api.coingecko.com/api/v3/coins')
-  const data2 = await Api()
   const data = await response.json()
   const revalidateInSeconds = 60
 

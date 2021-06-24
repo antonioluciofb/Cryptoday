@@ -23,16 +23,14 @@ export const Container = styled.div`
 
     margin: 20px;
 
-    :focus{
+    :focus {
       outline: none;
     }
   }
 
   background-image: linear-gradient(
     to bottom,
-    rgb(0, 0, 0)
-    rgb(30, 30, 30),
-    rgb(60, 60, 60),
-    rgb(75, 75, 75),
+    rgb(45, 45, 45),
+    rgb(75, 75, 75)
   );
 `

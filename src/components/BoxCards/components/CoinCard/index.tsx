@@ -23,10 +23,8 @@ const CoinCard = ({ item }: item) => {
     price_change_percentage_30d
   } = item.market_data
 
-  const excludeColors = ['ksm', 'atom', 'miota', 'cro']
-
   function whatsColor() {
-    return '#707070'
+    return 'rgb(0,0,0,1)'
   }
 
   return (
