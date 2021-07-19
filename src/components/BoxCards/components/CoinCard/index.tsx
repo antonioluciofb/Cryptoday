@@ -1,21 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Container,
-  ImageCoin,
+  CoinContainer,
+  Imagecoin,
   Infos,
   Text,
   NameAndPrice,
   BoxColor,
-  BoxVariation
+  BoxVariation,
+  WrapperImage,
+  FavoriteButton
 } from './style'
 
 interface item {
   item: any
+  selectCard: any
+  favorite?: boolean
 }
 
+import heart from 'react-useanimations/lib/heart'
 import Variation from './components/Variation'
+import UseAnimations from 'react-useanimations'
 
-const CoinCard = ({ item }: item) => {
+const CoinCard = ({ item, selectCard, favorite }: item) => {
+  const [Favorite, setFavorite] = useState(false)
   const { brl } = item.market_data.current_price
   const {
     price_change_percentage_24h,
@@ -24,16 +32,28 @@ const CoinCard = ({ item }: item) => {
   } = item.market_data
 
   function whatsColor() {
-    return 'rgb(0,0,0,1)'
+    return 'rgb(0, 49, 84, 0.4)'
+  }
+
+  const add = (symbol?: any): void => {
+    setFavorite(prev => !prev)
+    selectCard(symbol)
   }
 
   return (
     <Container>
-      <ImageCoin color={whatsColor()}>
-        <div className="wrapper">
-          <img src={item.image.large} alt="" />
-        </div>
-      </ImageCoin>
+      <CoinContainer color={whatsColor()}>
+        <WrapperImage>
+          <Imagecoin src={item.image.large} alt="" />
+        </WrapperImage>
+        <FavoriteButton color={whatsColor()} onClick={() => add(item.symbol)}>
+          <UseAnimations
+            reverse={favorite || Favorite}
+            animation={heart}
+            size={50}
+          />
+        </FavoriteButton>
+      </CoinContainer>
       <Infos>
         <NameAndPrice color={whatsColor()}>
           <Text>{item.name}</Text>

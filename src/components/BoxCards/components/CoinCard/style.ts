@@ -5,6 +5,8 @@ interface bgColor {
 }
 
 export const Container = styled.div`
+  position: relative;
+
   width: 330px;
   height: 410px;
 
@@ -19,7 +21,7 @@ export const Container = styled.div`
   background-color: rgba(255, 255, 250, 0.5);
 `
 
-export const ImageCoin = styled.div<bgColor>`
+export const CoinContainer = styled.div<bgColor>`
   width: 100%;
   height: 45vh;
 
@@ -28,21 +30,6 @@ export const ImageCoin = styled.div<bgColor>`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  .wrapper {
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 200px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  img {
-    width: 110px;
-    height: 110px;
-  }
 `
 export const Infos = styled.div`
   width: 100%;
@@ -79,7 +66,7 @@ export const NameAndPrice = styled.div<bgColor>`
   font-size: 20px;
   text-transform: uppercase;
   color: black;
-  
+
   label {
     position: absolute;
     font-size: 15px;
@@ -97,4 +84,38 @@ export const BoxVariation = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`
+
+export const Imagecoin = styled.img`
+  width: 110px;
+  height: 110px;
+`
+
+export const WrapperImage = styled.div`
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const FavoriteButton = styled.div`
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 50px;
+
+  top: 3px;
+  right: 3px;
+
+  path {
+    stroke: white;
+    fill: white;
+  }
 `

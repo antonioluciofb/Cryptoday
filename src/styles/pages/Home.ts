@@ -9,28 +9,5 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
 
-  input {
-    width: 20%;
-    height: 35px;
-
-    text-align: center;
-    font-size: 20px;
-    color: #000;
-
-    border: none;
-    border-radius: 5px;
-    /* background: rgba(255, 255, 255, 0.5); */
-
-    margin: 20px;
-
-    :focus {
-      outline: none;
-    }
-  }
-
-  background-image: linear-gradient(
-    to bottom,
-    rgb(45, 45, 45),
-    rgb(75, 75, 75)
-  );
+  background-image: linear-gradient(to bottom, rgb(75, 75, 75), rgb(0, 0, 0));
 `
